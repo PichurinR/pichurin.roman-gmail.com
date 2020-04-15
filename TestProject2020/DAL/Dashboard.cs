@@ -8,6 +8,9 @@ namespace DAL
     {
         public long Id { get; set; }
         public string Name { get; set; }
-        public IEnumerable<Label> Labels { get; set; }
+        public string Description { get; set; }
+        public DateTime CreateDate { get; set; }
+        public bool IsDaleted { get; set; }
+        public IEnumerable<Section> Sections { get; set; }
     }
 }

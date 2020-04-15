@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DAL
 {
-    public class Label
+    public class Section
     {
         public long Id { get; set; }
         public string Name { get; set; }
