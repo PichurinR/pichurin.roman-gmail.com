@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using AutoMapper;
+using BAL.Interface;
+using BAL.Services;
+using BAL.Mapper;
 
 namespace TestProject2020
 {
@@ -28,6 +31,7 @@ namespace TestProject2020
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AppDBContext>(options => options.UseSqlServer(connection));
             services.AddAutoMapper(typeof(Startup));
+            services.AddTransient<IDashboardService, DashboardService>();
             services.AddControllers();
            
         }

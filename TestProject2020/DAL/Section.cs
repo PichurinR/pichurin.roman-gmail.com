@@ -8,7 +8,7 @@ namespace DAL
     {
         public long Id { get; set; }
         public string Name { get; set; }
-        public Dashboard DashboardId { get; set; }
+        public long DashboardId { get; set; }
         public IEnumerable<Ticket> Tickets { get; set; }
     }
 }

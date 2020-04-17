@@ -3,11 +3,12 @@ using BAL.Interface;
 using BAL.ViewModel;
 using DAL;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BAL.Services
 {
-    class DashboardService : IDashboardService
+    public class DashboardService : IDashboardService
     {
         private AppDBContext _dbContext;
         private IMapper _mapper;
@@ -23,14 +24,14 @@ namespace BAL.Services
 
             _dbContext.Dashboards.Add(dashboard);
             _dbContext.SaveChanges();
-           
+
             return dashboard.Id;
         }
 
         public void DeleteDashboard(long id)
         {
             var dashboard = _dbContext.Dashboards.SingleOrDefault(d => d.Id == id && !d.IsDaleted);
-            if (dashboard!=null)
+            if (dashboard != null)
             {
                 dashboard.IsDaleted = true;
             }
@@ -40,12 +41,28 @@ namespace BAL.Services
 
         public DashboardVM GetDashboard(long id)
         {
-            return _mapper.Map<DashboardVM>(_dbContext.Dashboards.SingleOrDefault(d=>d.Id == id && !d.IsDaleted));
+            return _mapper.Map<DashboardVM>(_dbContext.Dashboards.SingleOrDefault(d => d.Id == id && !d.IsDaleted));
         }
 
-        public DashboardVM GetDashboards()
+        public IEnumerable<DashboardVM> GetDashboards()
         {
-            throw new NotImplementedException();
+            //var res = _mapper.Map<IEnumerable<DashboardVM>>(_dbContext.Dashboards.Where(d => !d.IsDaleted));
+            var res = _mapper.Map<IEnumerable<DashboardVM>>(new List<Dashboard> {
+            new Dashboard{
+            Id =123,
+            Description = "Description",
+            Name = "Test",
+            Sections = new List<Section>{
+            new Section{
+                Id=1,
+                Name="Section",
+                DashboardId = 123
+            } }
+            }
+            });
+
+
+            return res;
         }
     }
 }
