@@ -41,7 +41,13 @@ namespace BAL.Services
 
         public DashboardVM GetDashboard(long id)
         {
-            return _mapper.Map<DashboardVM>(_dbContext.Dashboards.SingleOrDefault(d => d.Id == id && !d.IsDaleted));
+            // return _mapper.Map<DashboardVM>(_dbContext.Dashboards.SingleOrDefault(d => d.Id == id && !d.IsDaleted));
+            return _mapper.Map<DashboardVM>(new Dashboard
+            {
+                Id = 123,
+                Description = "Description",
+                Name = "Test"
+            });
         }
 
         public IEnumerable<DashboardVM> GetDashboards()
@@ -60,8 +66,6 @@ namespace BAL.Services
             } }
             }
             });
-
-
             return res;
         }
     }

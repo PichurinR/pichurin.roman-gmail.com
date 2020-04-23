@@ -12,7 +12,6 @@ using Microsoft.Extensions.Hosting;
 using AutoMapper;
 using BAL.Interface;
 using BAL.Services;
-using BAL.Mapper;
 
 namespace TestProject2020
 {
