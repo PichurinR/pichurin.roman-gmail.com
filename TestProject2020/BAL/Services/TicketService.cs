@@ -43,12 +43,12 @@ namespace BAL.Services
 
         public long EditTicket(TicketVM model)
         {
-            throw new NotImplementedException();
-        }
+            var ticket = _mapper.Map<Ticket>(model);
 
-        public IEnumerable<TicketVM> GetTickets()
-        {
-            throw new NotImplementedException();
+            _dbContext.Tickets.Update(ticket);
+            _dbContext.SaveChanges();
+
+            return ticket.Id;
         }
     }
 }

@@ -10,6 +10,5 @@ namespace BAL.Interface
         long CreateTicket(TicketVM model);
         void Voting(long id);
         long EditTicket(TicketVM model);
-        IEnumerable<TicketVM> GetTickets();
     }
 }
