@@ -38,7 +38,6 @@ namespace BAL.Services
                 _dbContext.Tickets.Update(ticket);
                 _dbContext.SaveChanges();
             }
-            
         }
 
         public long EditTicket(TicketVM model)

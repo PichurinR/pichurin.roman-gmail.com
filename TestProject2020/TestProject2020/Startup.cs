@@ -27,10 +27,16 @@ namespace TestProject2020
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AppDBContext>(options => options.UseSqlServer(connection));
             services.AddAutoMapper(typeof(Startup));
+            
+            //-----DI
             services.AddTransient<IDashboardService, DashboardService>();
+            services.AddTransient<ITicketService, TicketService>();
+            
             services.AddControllers();
            
         }
@@ -51,7 +57,9 @@ namespace TestProject2020
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}");
             });
         }
     }

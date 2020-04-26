@@ -5,12 +5,12 @@ using System.Text;
 
 namespace DAL
 {
-    public class AppDBContext : DbContext
+    public sealed class AppDBContext : DbContext
     {
         public AppDBContext(DbContextOptions<AppDBContext> options)
             : base(options)
         {
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         public DbSet<Dashboard> Dashboards { get; set; }

@@ -5,7 +5,7 @@ namespace BAL.Interface
 {
     public interface IDashboardService
     {
-        long CreateDasboard(DashboardVM model);
+        long CreateDashboard(DashboardVM model);
         void DeleteDashboard(long id);
         IEnumerable<DashboardVM> GetDashboards();
         DashboardVM GetDashboard(long id);
