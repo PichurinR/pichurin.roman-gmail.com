@@ -1,10 +1,8 @@
 ﻿(function () {
     'use strict';
-
     angular.module('myApp', [
         // Angular modules 
-        'ngRoute'
-
+        'ui.bootstrap'
         // Custom modules 
 
         // 3rd Party Modules

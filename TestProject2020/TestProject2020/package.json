@@ -3,9 +3,12 @@
   "name": "asp.net",
   "private": true,
   "devDependencies": {
-    "bootstrap": "4.4.1",
+    "bootstrap": "3.3.7",
     "jquery": "3.5.0",
     "popper.js": "1.16.1",
-    "angular": "1.7.9"
+    "angular": "1.7.9",
+    "angular-animate": "1.7.9",
+    "angular-touch": "1.7.9",
+    "angular-ui-bootstrap": "2.5.0"
   }
 }
