@@ -32,8 +32,7 @@ namespace TestProject2020
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AppDBContext>(options => options.UseSqlServer(connection));
             services.AddAutoMapper(typeof(Startup));
-            
-            //-----DI
+           
             services.AddTransient<IDashboardService, DashboardService>();
             services.AddTransient<ITicketService, TicketService>();
             
@@ -41,7 +40,6 @@ namespace TestProject2020
            
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
